@@ -1,0 +1,373 @@
+/* ============================================================
+   ПРАКТИКА ПД — Zodiac / Cosmic dark theme
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root {
+  --font-heading: 'Cinzel', Georgia, serif;
+  --font-body:    'Crimson Pro', Georgia, serif;
+
+  --color-bg:          #0d0e1a;
+  --color-surface:     #12152b;
+  --color-surface-2:   #1a1f3a;
+  --color-gold:        #c9a84c;
+  --color-gold-light:  #e8c97e;
+  --color-gold-dim:    rgba(201,168,76,0.18);
+  --color-text:        #e8e3d8;
+  --color-muted:       #8a8499;
+  --color-accent:      #7c6af5;
+
+  --glass-bg:    rgba(18, 21, 43, 0.75);
+  --glass-blur:  14px;
+  --radius:      14px;
+  --max-width:   960px;
+
+  --border-gold: 1px solid rgba(201,168,76,0.3);
+  --shadow-card: 0 8px 32px rgba(0,0,0,0.45), 0 0 0 1px rgba(201,168,76,0.12);
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+/* ---- Body & star background ---- */
+body {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(ellipse at 20% 30%, rgba(124,106,245,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 70%, rgba(201,168,76,0.08) 0%, transparent 50%),
+    url("../images/background.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  color: var(--color-text);
+  line-height: 1.75;
+  padding-top: 72px;
+}
+
+/* dark overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(8,9,22,0.72);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ---- Stars decoration ---- */
+.stars {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.stars span {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: var(--color-gold-light);
+  border-radius: 50%;
+  animation: twinkle var(--dur, 3s) ease-in-out infinite var(--delay, 0s);
+  opacity: 0;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(1); }
+  50%       { opacity: 0.8; transform: scale(1.4); }
+}
+
+/* ---- Navigation ---- */
+nav {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 72px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(10,11,24,0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: var(--border-gold);
+  z-index: 1000;
+}
+
+nav ul { display: flex; gap: 0.25rem; list-style: none; }
+
+nav a {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  text-decoration: none;
+  padding: 0.55rem 1.1rem;
+  border-radius: 8px;
+  transition: color 0.25s, background 0.25s;
+}
+nav a:hover,
+nav a.active {
+  color: var(--color-gold-light);
+  background: var(--color-gold-dim);
+}
+
+/* ---- Main layout ---- */
+main {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin: 2.5rem auto;
+  padding: 2rem 1.5rem;
+}
+
+/* ---- Sections ---- */
+section + section { margin-top: 2rem; }
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--color-gold-light);
+  letter-spacing: 0.04em;
+}
+h1 { font-size: 2.4rem; margin-bottom: 1rem; }
+h2 { font-size: 1.6rem; margin-bottom: 0.75rem; }
+h3 { font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--color-gold); }
+
+p  { margin-bottom: 1rem; }
+ul, ol { padding-left: 1.4rem; margin-bottom: 1rem; }
+li { margin-bottom: 0.4rem; }
+code {
+  font-size: 0.9em;
+  background: rgba(201,168,76,0.12);
+  color: var(--color-gold-light);
+  padding: 0.15em 0.45em;
+  border-radius: 4px;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+
+/* ---- Buttons ---- */
+a.button, button.button {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-bg);
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+  padding: 0.7rem 1.6rem;
+  border-radius: var(--radius);
+  border: none; cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(201,168,76,0.28);
+  margin-right: 0.6rem; margin-top: 0.4rem;
+}
+a.button:hover, button.button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(201,168,76,0.4);
+}
+
+/* ---- Card ---- */
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--radius);
+  border: var(--border-gold);
+  padding: 1.6rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 1px rgba(201,168,76,0.25); }
+
+/* ---- Hero ---- */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+  position: relative;
+}
+.hero-zodiac {
+  font-size: 2.2rem;
+  letter-spacing: 0.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.55;
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+.hero h1 {
+  font-size: 2.8rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 60%, #fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  font-size: 1.2rem;
+  color: var(--color-muted);
+  max-width: 560px;
+  margin: 0 auto 2rem;
+}
+.hero-subtitle {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  border: var(--border-gold);
+  padding: 0.3rem 0.9rem;
+  border-radius: 100px;
+  margin-bottom: 1.2rem;
+}
+
+/* ---- Commands table ---- */
+.cmd-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+.cmd-table th, .cmd-table td {
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+.cmd-table th {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  background: rgba(201,168,76,0.06);
+}
+.cmd-table tr:last-child td { border-bottom: none; }
+.cmd-table tr:hover td { background: rgba(201,168,76,0.04); }
+
+/* ---- Tech stack badges ---- */
+.badge-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.8rem 0; }
+.badge {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  border: var(--border-gold);
+  color: var(--color-gold-light);
+  background: rgba(201,168,76,0.08);
+}
+
+/* ---- Flow steps ---- */
+.flow { display: flex; flex-direction: column; gap: 0; margin: 1rem 0; }
+.flow-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border-left: 2px solid rgba(201,168,76,0.25);
+  position: relative;
+}
+.flow-step:last-child { border-color: transparent; }
+.flow-num {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--color-gold-dim);
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold-light);
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 0.1rem;
+}
+
+/* ---- Zodiac grid (index) ---- */
+.zodiac-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.zodiac-item {
+  text-align: center;
+  padding: 1rem 0.5rem;
+  border-radius: var(--radius);
+  border: var(--border-gold);
+  background: rgba(18,21,43,0.6);
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.zodiac-item:hover { background: var(--color-gold-dim); color: var(--color-gold-light); transform: translateY(-3px); }
+.zodiac-icon { font-size: 1.8rem; display: block; margin-bottom: 0.3rem; }
+
+/* ---- Forms (contact) ---- */
+.form-grid { display: flex; flex-direction: column; gap: 1rem; max-width: 500px; }
+.form-grid input,
+.form-grid textarea {
+  padding: 0.8rem 1rem;
+  border: var(--border-gold);
+  border-radius: var(--radius);
+  background: rgba(18,21,43,0.85);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-grid input:focus,
+.form-grid textarea:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+}
+.form-grid input::placeholder,
+.form-grid textarea::placeholder { color: var(--color-muted); }
+.form-grid button[type="submit"] {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+  border: none; cursor: pointer;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 16px rgba(201,168,76,0.28);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.form-grid button[type="submit"]:hover { opacity: 0.9; transform: translateY(-2px); }
+
+/* ---- Divider ---- */
+.divider {
+  border: none;
+  border-top: var(--border-gold);
+  margin: 1.5rem 0;
+}
+
+/* ---- Footer ---- */
+footer {
+  position: relative; z-index: 1;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  padding: 1.5rem 0 2rem;
+  border-top: var(--border-gold);
+  margin-top: 3rem;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.9rem; }
+  nav a { font-size: 0.75rem; padding: 0.45rem 0.65rem; }
+  .zodiac-grid { grid-template-columns: repeat(3, 1fr); }
+  .cmd-table { font-size: 0.9rem; }
+}

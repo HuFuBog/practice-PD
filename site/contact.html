@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — Telegram Horoscope Bot</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="about.html">О проекте</a></li>
+      <li><a href="reports.html">Отчёты</a></li>
+      <li><a href="contact.html" class="active">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section class="card">
+      <span class="hero-subtitle">Связь с командой</span>
+      <h1>Контакты</h1>
+      <p>Если у вас есть вопросы по проекту или предложения — заполните форму ниже.</p>
+      <form method="post" action="#" class="form-grid">
+        <input type="text"  name="name"    placeholder="Имя"       required />
+        <input type="email" name="email"   placeholder="Email"     required />
+        <textarea           name="message" placeholder="Сообщение" rows="5" required></textarea>
+        <button type="submit">Отправить</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Практика ПД &nbsp;·&nbsp; Telegram Horoscope Bot &nbsp;·&nbsp; группа 251-335
+  </footer>
+
+  <script>
+    const c = document.getElementById('stars');
+    for (let i = 0; i < 80; i++) {
+      const s = document.createElement('span');
+      s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;--dur:${2+Math.random()*4}s;--delay:-${Math.random()*5}s;`;
+      c.appendChild(s);
+    }
+  </script>
+</body>
+</html>

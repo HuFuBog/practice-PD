@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О проекте — Telegram Horoscope Bot</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="about.html" class="active">О проекте</a></li>
+      <li><a href="reports.html">Отчёты</a></li>
+      <li><a href="contact.html">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section class="card">
+      <span class="hero-subtitle">Учебный проект · 09.03.02</span>
+      <h1>О проекте</h1>
+      <p>
+        <strong>Telegram Horoscope Bot</strong> — учебный Telegram-бот на языке Python,
+        разработанный в рамках проектной (учебной) практики по направлению
+        <em>Информационные системы и технологии</em>. Бот предоставляет ежедневные гороскопы
+        для всех двенадцати знаков зодиака, используя открытое внешнее API.
+      </p>
+      <div class="badge-list">
+        <span class="badge">Python 3.8+</span>
+        <span class="badge">pyTelegramBotAPI</span>
+        <span class="badge">Horoscope API v1</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Участники</h2>
+      <table class="cmd-table">
+        <thead>
+          <tr><th>ФИО</th><th>Группа</th><th>Направление</th><th>Вклад в проект</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Бирюков Артём Александрович</td>
+            <td>251-335</td>
+            <td>09.03.02</td>
+            <td>Дизайн сайта, CSS, glassmorphism, главная страница</td>
+          </tr>
+          <tr>
+            <td>Власова Анастасия Николаевна</td>
+            <td>251-335</td>
+            <td>09.03.02</td>
+            <td>Страница «О проекте», документация, логотип</td>
+          </tr>
+          <tr>
+            <td>Каримбаева Анора Еркин кизи</td>
+            <td>251-335</td>
+            <td>09.03.02</td>
+            <td>Страница отчётов, контактная форма, документация бота</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr class="divider">
+      <p>
+        <strong>Куратор по проектной деятельности:</strong> Носкова Василиса Евгеньевна<br>
+        <strong>Период практики:</strong> 03 февраля 2025 г. — 24 мая 2025 г.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Команды бота</h2>
+      <p>После запуска бот регистрирует следующие команды и реагирует на обычные текстовые сообщения:</p>
+      <table class="cmd-table">
+        <thead>
+          <tr><th>Команда</th><th>Описание</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>/start</code></td><td>Приветственное сообщение и показ клавиатуры команд</td></tr>
+          <tr><td><code>/hello</code></td><td>Аналог <code>/start</code> — ещё одно приветствие</td></tr>
+          <tr><td><code>/horoscope</code></td><td>Запуск диалога: знак зодиака → день → гороскоп</td></tr>
+          <tr><td><code>/help</code></td><td>Справка по всем доступным командам</td></tr>
+          <tr><td><code>/menu</code></td><td>Повторный показ кнопочной клавиатуры</td></tr>
+          <tr><td>Любой текст</td><td>Бот повторяет введённое сообщение (эхо)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Как работает /horoscope</h2>
+      <p>Реализовано через цепочку шагов с помощью <code>register_next_step_handler</code>:</p>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div>Пользователь вводит <code>/horoscope</code> — бот запрашивает знак зодиака.</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div>Пользователь вводит знак на русском (например: <em>Весы</em>) — бот запрашивает день.</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div>Пользователь вводит <code>СЕГОДНЯ</code>, <code>ЗАВТРА</code>, <code>ВЧЕРА</code> или дату <code>ГГГГ-ММ-ДД</code>.</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div>Бот конвертирует русское название знака в английское (словарь <code>RU_TO_EN</code>) и делает GET-запрос к API.</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">5</div>
+          <div>Пользователю приходит текст гороскопа, знак и дата в формате Markdown.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Внешнее API гороскопов</h2>
+      <ul>
+        <li><strong>Endpoint:</strong> <code>GET https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily</code></li>
+        <li><strong>Параметр <code>sign</code>:</strong> название знака на английском (Aries, Taurus, …)</li>
+        <li><strong>Параметр <code>day</code>:</strong> <code>TODAY</code>, <code>TOMORROW</code>, <code>YESTERDAY</code> или дата</li>
+        <li><strong>Ответ:</strong> JSON с полем <code>data.horoscope_data</code> — текст предсказания</li>
+      </ul>
+      <hr class="divider">
+      <h3>Пример запроса</h3>
+      <code>GET /api/v1/get-horoscope/daily?sign=Libra&amp;day=TODAY</code>
+    </section>
+
+    <section class="card">
+      <h2>Структура проекта</h2>
+      <ul>
+        <li><code>site/</code> — статический сайт (HTML + CSS)</li>
+        <li><code>subproject/telegram_bot/bot.py</code> — основной файл бота</li>
+        <li><code>subproject/telegram_bot/requirements.txt</code> — зависимости</li>
+        <li><code>reports/</code> — отчёты участников (.md и .docx)</li>
+        <li><code>docs/practice_documentation.md</code> — техническая документация</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Установка и запуск</h2>
+      <ol>
+        <li>Перейти в папку <code>subproject/telegram_bot/</code></li>
+        <li>Открыть <code>bot.py</code> и вставить токен от <strong>@BotFather</strong> в переменную <code>BOT_TOKEN</code></li>
+        <li>Запустить: <code>python bot.py</code></li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Практика ПД &nbsp;·&nbsp; Telegram Horoscope Bot &nbsp;·&nbsp; группа 251-335
+  </footer>
+
+  <script>
+    const c = document.getElementById('stars');
+    for (let i = 0; i < 80; i++) {
+      const s = document.createElement('span');
+      s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;--dur:${2+Math.random()*4}s;--delay:-${Math.random()*5}s;`;
+      c.appendChild(s);
+    }
+  </script>
+</body>
+</html>

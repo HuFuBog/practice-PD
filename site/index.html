@@ -1,12 +1,98 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Заглушка</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Практика ПД — Telegram Horoscope Bot</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Заглушка для сайта проектной практики</h1>
-    <p>Этот файл предназначен для сайта проектной практики.</p>
+
+  <div class="stars" id="stars"></div>
+
+  <nav>
+    <ul>
+      <li><a href="index.html" class="active">Главная</a></li>
+      <li><a href="about.html">О проекте</a></li>
+      <li><a href="reports.html">Отчёты</a></li>
+      <li><a href="contact.html">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-zodiac">♈ ♉ ♊ ♋ ♌ ♍ ♎ ♏ ♐ ♑ ♒ ♓</div>
+      <span class="hero-subtitle">Практика проектной деятельности &nbsp;·&nbsp; группа 251-335</span>
+      <h1>Telegram Horoscope Bot</h1>
+      <p>Учебный проект — Telegram-бот на Python с ежедневными гороскопами для всех знаков зодиака.</p>
+      <a href="about.html" class="button">О проекте</a>
+      <a href="reports.html" class="button">Отчёты</a>
+    </section>
+
+    <section class="card">
+      <h2>Поддерживаемые знаки зодиака</h2>
+      <p>Пользователь вводит название на русском — бот автоматически конвертирует в формат API.</p>
+      <div class="zodiac-grid">
+        <div class="zodiac-item"><span class="zodiac-icon">♈</span>Овен</div>
+        <div class="zodiac-item"><span class="zodiac-icon">♉</span>Телец</div>
+        <div class="zodiac-item"><span class="zodiac-icon">♊</span>Близнецы</div>
+        <div class="zodiac-item"><span class="zodiac-icon">♋</span>Рак</div>
+        <div class="zodiac-item"><span class="zodiac-icon">♌</span>Лев</div>
+        <div class="zodiac-item"><span class="zodiac-icon">♍</span>Дева</div>
+        <div class="zodiac-item"><span class="zodiac-icon">♎</span>Весы</div>
+        <div class="zodiac-item"><span class="zodiac-icon">♏</span>Скорпион</div>
+        <div class="zodiac-item"><span class="zodiac-icon">♐</span>Стрелец</div>
+        <div class="zodiac-item"><span class="zodiac-icon">♑</span>Козерог</div>
+        <div class="zodiac-item"><span class="zodiac-icon">♒</span>Водолей</div>
+        <div class="zodiac-item"><span class="zodiac-icon">♓</span>Рыбы</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Технологический стек</h2>
+      <p>Проект реализован на чистом Python, без тяжёлых фреймворков — прост в изучении и запуске.</p>
+      <div class="badge-list">
+        <span class="badge">Python 3.8+</span>
+        <span class="badge">pyTelegramBotAPI</span>
+        <span class="badge">requests</span>
+        <span class="badge">python-dotenv</span>
+        <span class="badge">Horoscope API</span>
+        <span class="badge">Telegram Bot API</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Команда проекта</h2>
+      <table class="cmd-table">
+        <thead>
+          <tr><th>Участник</th><th>Группа</th><th>Роль</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Бирюков Артём Александрович</td><td>251-335</td><td>Дизайн и вёрстка</td></tr>
+          <tr><td>Власова Анастасия Николаевна</td><td>251-335</td><td>Документация и контент</td></tr>
+          <tr><td>Каримбаева Анора Еркин кизи</td><td>251-335</td><td>Отчёты и форма</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:0.8rem">
+        <strong>Куратор:</strong> Носкова Василиса Евгеньевна &nbsp;·&nbsp;
+        <strong>Период:</strong> 03.02.2025 — 24.05.2025
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Практика ПД &nbsp;·&nbsp; Telegram Horoscope Bot &nbsp;·&nbsp; группа 251-335
+  </footer>
+
+  <script>
+    const c = document.getElementById('stars');
+    for (let i = 0; i < 80; i++) {
+      const s = document.createElement('span');
+      s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;--dur:${2+Math.random()*4}s;--delay:-${Math.random()*5}s;`;
+      c.appendChild(s);
+    }
+  </script>
 </body>
 </html>
