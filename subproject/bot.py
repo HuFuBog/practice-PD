@@ -89,8 +89,16 @@ def handle_buttons(message):
         bot.send_message(message.chat.id, "Выберите команду:", reply_markup=get_menu_markup())
 
 @bot.message_handler(func=lambda msg: True)
-def echo_all(message):
-    bot.send_message(message.chat.id, message.text, reply_markup=get_menu_markup())
+def unknown_message(message):
+    bot.send_message(
+        message.chat.id,
+        "🤔 Неизвестная команда.\n\n"
+        "Попробуйте:\n"
+        "🔮 Гороскоп\n"
+        "📋 Помощь\n"
+        "📌 Меню",
+        reply_markup=get_menu_markup()
+    )
 
 def get_horoscope(sign: str, period: str) -> dict:
     url = f"https://freehoroscopeapi.com/api/v1/get-horoscope/{period}"
