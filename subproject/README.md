@@ -1,61 +1,79 @@
-# Telegram Horoscope Bot (Python)
+# Telegram Horoscope Bot
 
-## Overview
-This small bot demonstrates how to create a Telegram bot using **pyTelegramBotAPI**. It supports:
-- `/start` and `/hello` – greeting messages.
-- Echo of any text message.
-- `/horoscope` – interactive flow that asks for a zodiac sign and a day, then returns a daily horoscope from a public API.
+## Описание
 
-## Prerequisites
-- Python 3.8+
-- A Telegram bot token obtained from **@BotFather**.
-- Internet connection (to call the horoscope API).
+Telegram-бот на Python, который предоставляет ежедневные гороскопы по знаку зодиака.  
+Пользователь вводит знак на русском языке и выбирает день — бот возвращает текст гороскопа на русском.
 
-## Setup
-1. Navigate to the bot directory:
+Поддерживаемые команды:
+
+| Команда | Описание |
+|---|---|
+| `/start`, `/hello` | Приветствие и показ клавиатуры |
+| `/horoscope` | Запуск диалога: знак → день → гороскоп |
+| `/help` | Справка по командам |
+| `/menu` | Повторный показ клавиатуры |
+| Любой текст | Эхо — бот повторяет сообщение |
+
+## Требования
+
+- Python 3.8 или выше
+- Токен Telegram-бота от [@BotFather](https://t.me/BotFather)
+- Интернет-соединение (для запросов к API гороскопов и сервису перевода)
+
+## Установка и запуск
+
+1. Перейдите в папку `subproject/`:
    ```bash
-   cd subproject/telegram_bot
+   cd subproject
    ```
-2. (Recommended) Create a virtual environment:
-   ```bash
-   python -m venv venv
-   # Activate:
-   #   Linux/macOS: source venv/bin/activate
-   #   Windows CMD: venv\Scripts\activate
-   #   Windows PowerShell: .\venv\Scripts\Activate.ps1
-   ```
-3. Install dependencies **including** `python-dotenv`:
+
+2. Установите зависимости:
    ```bash
    pip install -r requirements.txt
    ```
-4. Copy the example environment file and add your token:
-   ```bash
-   cp .env.example .env
-   # edit .env and replace the placeholder with the real token
+
+3. Откройте файл `bot.py` и вставьте свой токен в переменную `BOT_TOKEN`:
+   ```python
+   BOT_TOKEN = 'ваш_токен_здесь'
    ```
-   The bot reads the variable `BOT_TOKEN` from this file automatically.
 
-## Running the bot
-```bash
-python bot.py
+4. Запустите бота:
+   ```bash
+   python bot.py
+   ```
+
+Бот начнёт принимать сообщения. Откройте чат с ботом в Telegram и введите `/start`.
+
+## Зависимости (`requirements.txt`)
+
+| Библиотека | Назначение |
+|---|---|
+| `pyTelegramBotAPI` | Работа с Telegram Bot API |
+| `requests` | HTTP-запросы к API гороскопов |
+| `deep-translator` | Перевод текста гороскопа с английского на русский |
+
+## Как работает /horoscope
+
+1. Пользователь вводит `/horoscope`
+2. Бот спрашивает знак зодиака (на русском: Лев, Весы, Рак...)
+3. Бот спрашивает день: `СЕГОДНЯ`, `ЗАВТРА`, `ВЧЕРА` или дату `ГГГГ-ММ-ДД`
+4. Бот конвертирует русский знак в английский (словарь `RU_TO_EN`) и делает запрос к API
+5. Полученный текст переводится на русский через `GoogleTranslator`
+6. Пользователь получает гороскоп на русском языке
+
+## Структура папки
+
 ```
-The bot will start polling Telegram servers. Open a chat with your bot and try the commands:
-- `/start` – greeting.
-- `/hello` – another greeting.
-- `/horoscope` – follow the prompts to receive a horoscope.
-
-## Project structure
-```
-telegram_bot/
-├─ bot.py            # main bot implementation
-├─ requirements.txt  # Python dependencies (pyTelegramBotAPI, requests, python-dotenv)
-├─ .env.example      # template for environment variables
-├─ README.md         # this file
-└─ .gitkeep          # ensures folder exists in repository
+subproject/
+├── bot.py            # основной код бота
+├── requirements.txt  # зависимости Python
+└── README.md         # этот файл
 ```
 
-## License
-This example code is provided under the MIT license.
+## API гороскопов
 
----
-**Note:** If you see `ModuleNotFoundError: No module named 'dotenv'`, make sure you have installed the updated requirements (`pip install -r requirements.txt`) and that you are using the virtual environment where they were installed.
+Данные получаются из открытого сервиса:  
+`GET https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign=Leo&day=TODAY`
+
+Параметры: `sign` — знак на английском, `day` — `TODAY` / `TOMORROW` / `YESTERDAY` / дата.
