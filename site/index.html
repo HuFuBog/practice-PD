@@ -3,96 +3,127 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Практика ПД — Telegram Horoscope Bot</title>
+  <title>Симулятор раздачи листовок</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <div class="stars" id="stars"></div>
+<nav>
+  <a class="nav-logo" href="index.html">ЛИСТОВКА</a>
+  <ul>
+    <li><a href="index.html" class="active">Главная</a></li>
+    <li><a href="about.html">О проекте</a></li>
+    <li><a href="members.html">Участники</a></li>
+    <li><a href="journal.html">Журнал</a></li>
+    <li><a href="resources.html">Ресурсы</a></li>
+  </ul>
+</nav>
 
-  <nav>
-    <ul>
-      <li><a href="index.html" class="active">Главная</a></li>
-      <li><a href="about.html">О проекте</a></li>
-      <li><a href="reports.html">Отчёты</a></li>
-      <li><a href="contact.html">Контакты</a></li>
-    </ul>
-  </nav>
+<main>
 
-  <main>
+  <div class="hero">
+    <div class="hero-bg-text">ЛИСТОВКА</div>
+    <div class="hero-tag">Проектная деятельность · группа 251-335</div>
+    <h1>Симулятор<br><span>раздачи</span><br>листовок</h1>
+    <p class="hero-sub">
+      Учебный игровой проект: управляй промоутером, раздавай листовки прохожим
+      и прокачивай навыки убеждения в условиях городской среды.
+    </p>
+    <div>
+      <a href="about.html" class="btn">О проекте</a>
+      <a href="journal.html" class="btn btn-outline">Журнал</a>
+    </div>
 
-    <section class="hero">
-      <div class="hero-zodiac">♈ ♉ ♊ ♋ ♌ ♍ ♎ ♏ ♐ ♑ ♒ ♓</div>
-      <span class="hero-subtitle">Практика проектной деятельности &nbsp;·&nbsp; группа 251-335</span>
-      <h1>Telegram Horoscope Bot</h1>
-      <p>Учебный Telegram-бот на Python — ежедневные гороскопы по знаку зодиака на русском языке.</p>
-      <a href="about.html" class="button">О проекте</a>
-      <a href="reports.html" class="button">Отчёты</a>
-    </section>
-
-    <section class="card">
-      <h2>Поддерживаемые знаки зодиака</h2>
-      <p>Пользователь вводит название на русском — бот конвертирует в формат API и возвращает гороскоп на русском.</p>
-      <div class="zodiac-grid">
-        <div class="zodiac-item"><span class="zodiac-icon">♈</span>Овен</div>
-        <div class="zodiac-item"><span class="zodiac-icon">♉</span>Телец</div>
-        <div class="zodiac-item"><span class="zodiac-icon">♊</span>Близнецы</div>
-        <div class="zodiac-item"><span class="zodiac-icon">♋</span>Рак</div>
-        <div class="zodiac-item"><span class="zodiac-icon">♌</span>Лев</div>
-        <div class="zodiac-item"><span class="zodiac-icon">♍</span>Дева</div>
-        <div class="zodiac-item"><span class="zodiac-icon">♎</span>Весы</div>
-        <div class="zodiac-item"><span class="zodiac-icon">♏</span>Скорпион</div>
-        <div class="zodiac-item"><span class="zodiac-icon">♐</span>Стрелец</div>
-        <div class="zodiac-item"><span class="zodiac-icon">♑</span>Козерог</div>
-        <div class="zodiac-item"><span class="zodiac-icon">♒</span>Водолей</div>
-        <div class="zodiac-item"><span class="zodiac-icon">♓</span>Рыбы</div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">3</div>
+        <div class="stat-label">Участника</div>
       </div>
-    </section>
-
-    <section class="card">
-      <h2>Технологический стек</h2>
-      <p>Проект реализован на чистом Python, без тяжёлых фреймворков — прост в изучении и запуске.</p>
-      <div class="badge-list">
-        <span class="badge">Python 3.8+</span>
-        <span class="badge">pyTelegramBotAPI</span>
-        <span class="badge">requests</span>
-        <span class="badge">deep-translator</span>
-        <span class="badge">Horoscope API</span>
-        <span class="badge">HTML5 / CSS3</span>
+      <div>
+        <div class="stat-num">5</div>
+        <div class="stat-label">Уровней игры</div>
       </div>
-    </section>
+      <div>
+        <div class="stat-num">2025</div>
+        <div class="stat-label">Год разработки</div>
+      </div>
+      <div>
+        <div class="stat-num">09.03.02</div>
+        <div class="stat-label">Направление</div>
+      </div>
+    </div>
+  </div>
 
-    <section class="card">
-      <h2>Команда проекта</h2>
-      <table class="cmd-table">
-        <thead>
-          <tr><th>Участник</th><th>Группа</th><th>Роль</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Бирюков Артём Александрович</td><td>251-335</td><td>Дизайн и вёрстка</td></tr>
-          <tr><td>Власова Анастасия Николаевна</td><td>251-335</td><td>Документация и контент</td></tr>
-          <tr><td>Каримбаева Анора Еркин кизи</td><td>251-335</td><td>Отчёты и форма контактов</td></tr>
-        </tbody>
-      </table>
-      <p style="margin-top:0.8rem">
-        <strong>Куратор:</strong> Носкова Василиса Евгеньевна &nbsp;·&nbsp;
-        <strong>Период:</strong> 03.02.2025 — 24.05.2025
-      </p>
-    </section>
+  <hr class="divider">
 
-  </main>
+  <section>
+    <div class="section-label">Суть проекта</div>
+    <h2>Что это такое?</h2>
+    <p style="max-width:680px; color: #bbb;">
+      «Симулятор раздачи листовок» — это игровое приложение, разработанное в рамках
+      дисциплины «Проектная деятельность». Игрок управляет промоутером на улице города:
+      выбирает прохожих, предлагает им листовки и реагирует на их реакцию.
+      Цель — раздать как можно больше листовок за отведённое время, прокачивая
+      социальные навыки и скорость принятия решений.
+    </p>
 
-  <footer>
-    © 2026 Практика ПД &nbsp;·&nbsp; Telegram Horoscope Bot &nbsp;·&nbsp; группа 251-335
-  </footer>
+    <div class="cards">
+      <div class="card">
+        <div class="card-num">01</div>
+        <h3>Геймплей</h3>
+        <p style="color:#bbb; font-size:1rem;">Управление промоутером, выбор прохожих, реакция на отказ или принятие листовки. Таймер, очки, уровни сложности.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">02</div>
+        <h3>Механики</h3>
+        <p style="color:#bbb; font-size:1rem;">Разные типы прохожих с уникальным поведением. Случайные события: дождь, толпа, охранник. Система апгрейдов.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">03</div>
+        <h3>Технологии</h3>
+        <p style="color:#bbb; font-size:1rem;">Разработан на Unity (C#). 3D-графика, простое управление, сборка под Windows.</p>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    const c = document.getElementById('stars');
-    for (let i = 0; i < 80; i++) {
-      const s = document.createElement('span');
-      s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;--dur:${2+Math.random()*4}s;--delay:-${Math.random()*5}s;`;
-      c.appendChild(s);
-    }
-  </script>
+  <hr class="divider">
+
+  <!-- Схема игрового процесса -->
+  <section>
+    <div class="section-label">Игровой процесс</div>
+    <h2>Как это работает</h2>
+    <div class="diagram">
+      <div class="diagram-flow">
+        <div class="flow-node">
+          <div class="flow-icon">🚶</div>
+          <div class="flow-label">Прохожий появляется</div>
+        </div>
+        <div class="flow-node">
+          <div class="flow-icon">📄</div>
+          <div class="flow-label">Игрок предлагает листовку</div>
+        </div>
+        <div class="flow-node">
+          <div class="flow-icon">🤔</div>
+          <div class="flow-label">Реакция прохожего</div>
+        </div>
+        <div class="flow-node">
+          <div class="flow-icon">✅</div>
+          <div class="flow-label">Очки / следующий</div>
+        </div>
+        <div class="flow-node">
+          <div class="flow-icon">🏆</div>
+          <div class="flow-label">Итог уровня</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>© 2025 Группа <span>251-335</span> · Московский Политех</div>
+  <div>Куратор: <span>Носкова Василиса Евгеньевна</span></div>
+</footer>
+
 </body>
 </html>

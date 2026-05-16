@@ -3,180 +3,153 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>О проекте — Telegram Horoscope Bot</title>
+  <title>О проекте — Симулятор раздачи листовок</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <div class="stars" id="stars"></div>
+<nav>
+  <a class="nav-logo" href="index.html">ЛИСТОВКА</a>
+  <ul>
+    <li><a href="index.html">Главная</a></li>
+    <li><a href="about.html" class="active">О проекте</a></li>
+    <li><a href="members.html">Участники</a></li>
+    <li><a href="journal.html">Журнал</a></li>
+    <li><a href="resources.html">Ресурсы</a></li>
+  </ul>
+</nav>
 
-  <nav>
-    <ul>
-      <li><a href="index.html">Главная</a></li>
-      <li><a href="about.html" class="active">О проекте</a></li>
-      <li><a href="reports.html">Отчёты</a></li>
-      <li><a href="contact.html">Контакты</a></li>
-    </ul>
-  </nav>
+<main>
+  <section style="padding-top: 8rem;">
+    <div class="section-label">Проектная деятельность · 09.03.02</div>
+    <h1>О <span style="color:var(--yellow)">проекте</span></h1>
+    <p style="max-width:700px; color:#bbb; margin-top:1.5rem; font-size:1.15rem;">
+      «Симулятор раздачи листовок» — учебная игра, разработанная группой 251-335
+      в рамках дисциплины «Проектная деятельность» Московского политехнического университета.
+      Период разработки: февраль — май 2025 года.
+    </p>
+  </section>
 
-  <main>
+  <hr class="divider">
 
-    <section class="card">
-      <span class="hero-subtitle">Учебный проект · 09.03.02</span>
-      <h1>О проекте</h1>
-      <p>
-        <strong>Telegram Horoscope Bot</strong> — учебный Telegram-бот на языке Python,
-        разработанный в рамках проектной (учебной) практики по направлению
-        <em>Информационные системы и технологии</em>. Бот предоставляет ежедневные гороскопы
-        для всех двенадцати знаков зодиака с автоматическим переводом на русский язык.
-      </p>
-      <div class="badge-list">
-        <span class="badge">Python 3.8+</span>
-        <span class="badge">pyTelegramBotAPI</span>
-        <span class="badge">requests</span>
-        <span class="badge">deep-translator</span>
-        <span class="badge">Horoscope API v1</span>
+  <section>
+    <div class="section-label">Идея</div>
+    <h2>Откуда взялась идея</h2>
+    <p style="max-width:720px; color:#bbb;">
+      Идея возникла из наблюдения за повседневной городской жизнью: промоутеры с листовками —
+      привычная часть городского пространства. За внешней простотой этого занятия скрывается
+      целый набор навыков: умение быстро оценить прохожего, выбрать момент, справиться с отказом.
+      Мы решили превратить это в игровую механику.
+    </p>
+    <p style="max-width:720px; color:#bbb;">
+      Проект также служит демонстрацией навыков программирования на C# в среде Unity,
+      работы с игровым движком и проектирования игровой логики.
+    </p>
+  </section>
+
+  <hr class="divider">
+
+  <section>
+    <div class="section-label">Цели и задачи</div>
+    <h2>Что мы делали</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-num">01</div>
+        <h3>Цель</h3>
+        <p style="color:#bbb; font-size:1rem;">
+          Разработать игровое приложение на Unity (C#), демонстрирующее навыки командной разработки,
+          проектирования игровой логики и создания пользовательского интерфейса.
+        </p>
       </div>
-    </section>
+      <div class="card">
+        <div class="card-num">02</div>
+        <h3>Задачи</h3>
+        <p style="color:#bbb; font-size:1rem;">
+          Спроектировать игровые механики. Реализовать движение персонажей, систему очков,
+          уровни сложности. Разработать 3D-графику. Протестировать и задокументировать проект.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-num">03</div>
+        <h3>Результат</h3>
+        <p style="color:#bbb; font-size:1rem;">
+          Рабочий прототип игры с пятью уровнями, тремя типами прохожих,
+          системой очков и таймером. Исходный код задокументирован и размещён в репозитории.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <section class="card">
-      <h2>Участники</h2>
-      <table class="cmd-table">
-        <thead>
-          <tr><th>ФИО</th><th>Группа</th><th>Направление</th><th>Вклад в проект</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Бирюков Артём Александрович</td>
-            <td>251-335</td>
-            <td>09.03.02</td>
-            <td>Дизайн сайта, CSS, тёмная тема, главная страница</td>
-          </tr>
-          <tr>
-            <td>Власова Анастасия Николаевна</td>
-            <td>251-335</td>
-            <td>09.03.02</td>
-            <td>Страница «О проекте», техническая документация, комментарии в CSS</td>
-          </tr>
-          <tr>
-            <td>Каримбаева Анора Еркин кизи</td>
-            <td>251-335</td>
-            <td>09.03.02</td>
-            <td>Страница отчётов, форма контактов, документирование команд бота</td>
-          </tr>
-        </tbody>
-      </table>
-      <hr class="divider">
-      <p>
-        <strong>Куратор по проектной деятельности:</strong> Носкова Василиса Евгеньевна<br>
-        <strong>Период практики:</strong> 03 февраля 2025 г. — 24 мая 2025 г.
-      </p>
-    </section>
+  <hr class="divider">
 
-    <section class="card">
-      <h2>Команды бота</h2>
-      <p>После запуска бот регистрирует следующие команды и реагирует на текстовые сообщения:</p>
-      <table class="cmd-table">
-        <thead>
-          <tr><th>Команда</th><th>Описание</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>/start</code></td><td>Приветственное сообщение и показ клавиатуры команд</td></tr>
-          <tr><td><code>/hello</code></td><td>Аналог <code>/start</code> — ещё одно приветствие</td></tr>
-          <tr><td><code>/horoscope</code></td><td>Запуск диалога: знак зодиака → день → гороскоп на русском</td></tr>
-          <tr><td><code>/help</code></td><td>Справка по всем доступным командам</td></tr>
-          <tr><td><code>/menu</code></td><td>Повторный показ кнопочной клавиатуры</td></tr>
-          <tr><td>Любой текст</td><td>Бот повторяет введённое сообщение (эхо)</td></tr>
-        </tbody>
-      </table>
-    </section>
+  <section>
+    <div class="section-label">Технологии</div>
+    <h2>Стек проекта</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Unity 6</h3>
+        <p style="color:#bbb; font-size:1rem;">Игровой движок. Сцены, физика, анимация, сборка проекта под целевую платформу.</p>
+      </div>
+      <div class="card">
+        <h3>C#</h3>
+        <p style="color:#bbb; font-size:1rem;">Основной язык разработки. Логика игры, управление состояниями, обработка событий.</p>
+      </div>
+      <div class="card">
+        <h3>HTML + CSS</h3>
+        <p style="color:#bbb; font-size:1rem;">Статический сайт-документация проекта. Уникальный дизайн в стиле уличной эстетики.</p>
+      </div>
+    </div>
+  </section>
 
-    <section class="card">
-      <h2>Как работает /horoscope</h2>
-      <p>Реализовано через цепочку шагов с помощью <code>register_next_step_handler</code>:</p>
-      <div class="flow">
-        <div class="flow-step">
-          <div class="flow-num">1</div>
-          <div>Пользователь вводит <code>/horoscope</code> — бот запрашивает знак зодиака.</div>
+  <hr class="divider">
+
+  <section>
+    <div class="section-label">Описание игры</div>
+    <h2>Механика и геймплей</h2>
+    <p style="max-width:720px; color:#bbb;">
+      Игрок управляет персонажем-промоутером, стоящим на оживлённой улице.
+      По экрану движутся прохожие разных типов — каждый реагирует по-своему:
+      кто-то охотно берёт листовку, кто-то игнорирует, кто-то активно отказывается.
+    </p>
+    <p style="max-width:720px; color:#bbb;">
+      За каждую принятую листовку начисляются очки. Чем выше уровень —
+      тем быстрее движутся прохожие и тем реже они соглашаются.
+      Случайные события (внезапный дождь, скопление людей, появление охранника)
+      вносят непредсказуемость и требуют быстрой реакции.
+    </p>
+
+    <div class="diagram" style="margin-top:2rem;">
+      <h3 style="margin-bottom:1.5rem; color:var(--white);">Типы прохожих</h3>
+      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap:1.5px;">
+        <div style="background:var(--grey2); padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:.5rem;">🧑‍💼</div>
+          <div style="font-family:var(--font-h); font-size:1.2rem; color:var(--yellow);">Офисный работник</div>
+          <div style="color:var(--muted); font-size:.95rem;">Торопится, редко берёт. Высокая скорость.</div>
         </div>
-        <div class="flow-step">
-          <div class="flow-num">2</div>
-          <div>Пользователь вводит знак на русском (например: <em>Весы</em>). Бот проверяет его наличие в словаре и запрашивает день.</div>
+        <div style="background:var(--grey2); padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:.5rem;">👵</div>
+          <div style="font-family:var(--font-h); font-size:1.2rem; color:var(--yellow);">Пенсионер</div>
+          <div style="color:var(--muted); font-size:.95rem;">Медленно идёт, часто берёт. Даёт бонусные очки.</div>
         </div>
-        <div class="flow-step">
-          <div class="flow-num">3</div>
-          <div>Пользователь вводит <code>СЕГОДНЯ</code>, <code>ЗАВТРА</code>, <code>ВЧЕРА</code> или дату в формате <code>ГГГГ-ММ-ДД</code>.</div>
+        <div style="background:var(--grey2); padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:.5rem;">🎒</div>
+          <div style="font-family:var(--font-h); font-size:1.2rem; color:var(--yellow);">Студент</div>
+          <div style="color:var(--muted); font-size:.95rem;">Средняя скорость. Берёт если листовка про скидки.</div>
         </div>
-        <div class="flow-step">
-          <div class="flow-num">4</div>
-          <div>Бот конвертирует русский знак в английский (словарь <code>RU_TO_EN</code>) и русский день в английский (<code>RU_DAY_TO_EN</code>), затем делает GET-запрос к API.</div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-num">5</div>
-          <div>Полученный английский текст переводится на русский язык через <code>GoogleTranslator</code> (библиотека <code>deep-translator</code>).</div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-num">6</div>
-          <div>Пользователь получает гороскоп на русском языке вместе со знаком зодиака и датой.</div>
+        <div style="background:var(--grey2); padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:.5rem;">🕶</div>
+          <div style="font-family:var(--font-h); font-size:1.2rem; color:var(--yellow);">Охранник</div>
+          <div style="color:var(--muted); font-size:.95rem;">Спецсобытие. Штраф за попытку вручить листовку.</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+</main>
 
-    <section class="card">
-      <h2>Внешнее API гороскопов</h2>
-      <ul>
-        <li><strong>Endpoint:</strong> <code>GET https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily</code></li>
-        <li><strong>Параметр <code>sign</code>:</strong> название знака на английском (Aries, Taurus, …)</li>
-        <li><strong>Параметр <code>day</code>:</strong> <code>TODAY</code>, <code>TOMORROW</code>, <code>YESTERDAY</code> или дата</li>
-        <li><strong>Ответ:</strong> JSON с полем <code>data.horoscope_data</code> — текст предсказания на английском</li>
-        <li><strong>Перевод:</strong> текст автоматически переводится на русский через Google Translate</li>
-      </ul>
-      <hr class="divider">
-      <h3>Пример запроса</h3>
-      <code>GET /api/v1/get-horoscope/daily?sign=Libra&amp;day=TODAY</code>
-    </section>
+<footer>
+  <div>© 2025 Группа <span>251-335</span> · Московский Политех</div>
+  <div>Куратор: <span>Носкова Василиса Евгеньевна</span></div>
+</footer>
 
-    <section class="card">
-      <h2>Структура проекта</h2>
-      <ul>
-        <li><code>site/</code> — статический сайт (HTML + CSS)</li>
-        <li><code>subproject/bot.py</code> — основной файл бота</li>
-        <li><code>subproject/requirements.txt</code> — зависимости Python</li>
-        <li><code>reports/</code> — отчёты участников (.docx) и шаблон</li>
-        <li><code>docs/README.md</code> — техническая документация проекта</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>Установка и запуск</h2>
-      <ol>
-        <li>Перейти в папку <code>subproject/</code></li>
-        <li>Установить зависимости: <code>pip install -r requirements.txt</code></li>
-        <li>Открыть <code>bot.py</code> и вставить токен от <strong>@BotFather</strong> в переменную <code>BOT_TOKEN</code></li>
-        <li>Запустить: <code>python bot.py</code></li>
-      </ol>
-      <hr class="divider">
-      <h3>Зависимости (requirements.txt)</h3>
-      <div class="badge-list">
-        <span class="badge">pyTelegramBotAPI</span>
-        <span class="badge">requests</span>
-        <span class="badge">deep-translator</span>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    © 2026 Практика ПД &nbsp;·&nbsp; Telegram Horoscope Bot &nbsp;·&nbsp; группа 251-335
-  </footer>
-
-  <script>
-    const c = document.getElementById('stars');
-    for (let i = 0; i < 80; i++) {
-      const s = document.createElement('span');
-      s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;--dur:${2+Math.random()*4}s;--delay:-${Math.random()*5}s;`;
-      c.appendChild(s);
-    }
-  </script>
 </body>
 </html>
